@@ -1,0 +1,13 @@
+
+<h2>Personajes Ordenados por Planeta</h2>
+
+<table align="Center">
+  <tr>
+    <th>Nombre</th>
+    <th>Planeta</th>
+  </tr>
+  <tr *ngFor="let character of getCharacters()">
+    <td>{{ character.name }}</td>
+    <td>{{ character.homeworld }}</td>
+  </tr>
+</table>

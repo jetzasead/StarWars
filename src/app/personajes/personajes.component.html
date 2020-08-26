@@ -1,0 +1,46 @@
+<div class="center">
+  <section id="content">
+    <h2 class="subheader">Personajes</h2>
+
+
+
+    <!--Listado Personajes-->
+    <div id="personajes">
+      <div>
+        <a class="boton_personalizado" [routerLink]="['/personaje']" [queryParams]="{ordenar: 'name'}">
+          Ordenar por nombre
+        </a>
+
+      </div>
+      <div>
+        <a class="boton_personalizado" [routerLink]="['/personaje']" [queryParams]="{ordenar: 'mass'}">
+          Ordenar por Peso
+        </a>
+
+      </div>
+
+      <div>
+        <a class="boton_personalizado" [routerLink]="['/personaje']" [queryParams]="{ordenar: 'height'}">
+          Ordenar por Tamaño
+        </a>
+
+      </div>
+
+      <table align="Center">
+        <tr>
+          <th>Nombre</th>
+          <th>Peso</th>
+          <th>Altura</th>
+        </tr>
+        <tr *ngFor="let character of getCharacters()  | paginate: {itemsPerPage: 10, currentPage: paginaActual}; ">
+
+          <td>{{ character.name }}</td>
+          <td> {{ character.mass }}</td>
+          <td>{{ character.height }}</td>
+        </tr>
+      </table>
+      <pagination-controls (pageChange)="paginaActual= $event"></pagination-controls>
+
+
+    </div>
+    <div>
